@@ -321,7 +321,6 @@
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
       "CsvHelper >= 33.0.1",
-      "ScottPlot >= 4.1.61",
       "ScottPlot.WinForms >= 4.1.61"
     ]
   },
@@ -380,10 +379,6 @@
           "CsvHelper": {
             "target": "Package",
             "version": "[33.0.1, )"
-          },
-          "ScottPlot": {
-            "target": "Package",
-            "version": "[4.1.61, )"
           },
           "ScottPlot.WinForms": {
             "target": "Package",

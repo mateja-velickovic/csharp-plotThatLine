@@ -9,7 +9,6 @@
       "matvelickov-stats/1.0.0": {
         "dependencies": {
           "CsvHelper": "33.0.1",
-          "ScottPlot": "4.1.61",
           "ScottPlot.WinForms": "4.1.61"
         },
         "runtime": {

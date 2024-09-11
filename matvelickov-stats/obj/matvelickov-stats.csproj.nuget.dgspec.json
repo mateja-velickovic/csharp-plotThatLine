@@ -55,10 +55,6 @@
               "target": "Package",
               "version": "[33.0.1, )"
             },
-            "ScottPlot": {
-              "target": "Package",
-              "version": "[4.1.61, )"
-            },
             "ScottPlot.WinForms": {
               "target": "Package",
               "version": "[4.1.61, )"
