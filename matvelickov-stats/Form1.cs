@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////
 ///                                                      ///
 ///     ETML, Vennes                                     ///
-///     Auteur : Velickovic Mateja (matvelickov)         ///
-///     Projet : P_FUN Plot That Line                    ///
+///     Author : Velickovic Mateja (matvelickov)         ///
+///     Project : P_FUN Plot That Line                   ///
 ///     Date : 04.09.2024                                ///
 ///                                                      ///
 ////////////////////////////////////////////////////////////
@@ -17,6 +17,7 @@ namespace matvelickov_stats
     {
         string filePath = " ";
         string files = " ";
+        List<string> selectedFiles = new List<string>();
 
         public Form1()
         {
@@ -24,10 +25,8 @@ namespace matvelickov_stats
 
             this.Load += new EventHandler(listBox1_Load);
 
-            // Autoriser le format de la date sur l'axe X
             graph.Plot.XAxis.DateTimeFormat(true);
 
-            // Mise en forme du graphique
             var main_color = System.Drawing.Color.FromArgb(0x151922);
 
             graph.Plot.Style(Style.Gray2);
@@ -36,7 +35,6 @@ namespace matvelickov_stats
 
             graph.Plot.YAxis.Label(label: "Prix", color: Color.White);
             graph.Plot.XAxis.Label(label: "Date", color: Color.White);
-
             graph.Plot.XAxis.TickLabelStyle(color: Color.White);
             graph.Plot.YAxis.TickLabelStyle(color: Color.White);
 
@@ -44,7 +42,7 @@ namespace matvelickov_stats
 
 
         /// <summary>
-        /// Lit les données CSV et les retourne sous forme de collection d'objets avec Date et Close.
+        /// Insert columns 0 and 4 of the CSV file into the data variable
         /// </summary>
         /// <returns>Liste dynamique des données CSV</returns>
         public dynamic ReadCSV()
@@ -53,13 +51,10 @@ namespace matvelickov_stats
             {
                 var data = File.ReadAllLines($"./CSV/{filePath}.csv")
                                .Skip(1)
-                               .Select(line => line.Split(',')) 
-                               .Where(columns => columns.Length > 5 && 
-                                                 !string.IsNullOrWhiteSpace(columns[0]) && 
-                                                 !string.IsNullOrWhiteSpace(columns[5])) 
+                               .Select(line => line.Split(','))
                                .Select(columns => new
                                {
-                                   Date = columns[0],  
+                                   Date = columns[0],
                                    Close = columns[4]
                                })
                                .ToList();
@@ -68,21 +63,19 @@ namespace matvelickov_stats
             }
             catch (Exception ex)
             {
-                return ex;
+                return MessageBox.Show($"Error: {ex}");
             }
         }
 
         /// <summary>
-        /// Affiche les données sous forme de graphique.
+        /// Displays data graphically.
         /// </summary>
-        /// <param name="firstCol">Nom de la première colonne (Date)</param>
-        /// <param name="secondCol">Nom de la deuxième colonne (Close)</param>
         public void DisplayData()
         {
             var values = ReadCSV();
             if (values == null)
             {
-                Console.WriteLine("Aucune donnée à afficher.");
+                MessageBox.Show("No data to display.");
                 return;
             }
 
@@ -107,12 +100,12 @@ namespace matvelickov_stats
             }
             catch (FormatException fe)
             {
-                Console.WriteLine($"Erreur lors du parsing des données : {fe.Message}");
+                Console.WriteLine($"Error parsing data : {fe.Message}");
             }
         }
 
         /// <summary>
-        /// Nettoyage du graphique par l'utilisateur
+        /// User cleaning the graph
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -125,27 +118,32 @@ namespace matvelickov_stats
         }
 
         /// <summary>
-        /// Ajout d'une nouvelle donnée sur le graphique
+        /// Adding new data to the graph
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btn1_Click(object sender, EventArgs e)
         {
             filePath = listBox1.SelectedItem.ToString();
-            files += $" {listBox1.SelectedItem} |";
 
-            graph.Plot.Title(files, color: Color.White);
-            DisplayData();
-            graph.Refresh();
+            if (!selectedFiles.Contains(filePath))
+            {
+                selectedFiles.Add(filePath);
+                files += $"{filePath}, ";
 
-            graph.Plot.Legend(enable: true);
+                graph.Plot.Title(files, color: Color.White);
+                DisplayData();
+                graph.Refresh();
 
-            graph.Plot.AxisAuto();
-            graph.Refresh();
+                graph.Plot.Legend(enable: true);
+
+                graph.Plot.AxisAuto();
+                graph.Refresh();
+            }
         }
 
         /// <summary>
-        /// Liste des tous les fichiers dans le dossier CSV
+        /// List of all files in CSV folder
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -159,7 +157,7 @@ namespace matvelickov_stats
 
                 foreach (string file in files)
                 {
-                    if(Path.GetExtension(file) == ".csv")
+                    if (Path.GetExtension(file) == ".csv")
                     {
                         listBox1.Items.Add(Path.GetFileNameWithoutExtension(file));
                     }
@@ -167,13 +165,12 @@ namespace matvelickov_stats
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erreur : {ex.Message}");
+                MessageBox.Show($"Error : {ex.Message}");
             }
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-        }
+        {}
         private void graph_Load(object sender, EventArgs e)
         {
         }
@@ -186,9 +183,7 @@ namespace matvelickov_stats
         private void button1_Load(object sender, EventArgs e)
         {
         }
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-        }
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e) { }
 
     }
 }

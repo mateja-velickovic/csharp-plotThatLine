@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             btn1 = new Button();
             graph = new ScottPlot.FormsPlot();
             button1 = new Button();
@@ -46,7 +47,7 @@
             btn1.Name = "btn1";
             btn1.Size = new Size(100, 28);
             btn1.TabIndex = 0;
-            btn1.Text = "AJOUTER";
+            btn1.Text = "ADD";
             btn1.UseVisualStyleBackColor = false;
             btn1.Click += btn1_Click;
             // 
@@ -76,7 +77,7 @@
             button1.Name = "button1";
             button1.Size = new Size(102, 28);
             button1.TabIndex = 3;
-            button1.Text = "NETTOYER";
+            button1.Text = "CLEAN";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
@@ -112,8 +113,9 @@
             Controls.Add(button1);
             Controls.Add(graph);
             Controls.Add(btn1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
-            Text = "P_FUN | Plot That Line";
+            Text = "Plot That Line";
             Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
