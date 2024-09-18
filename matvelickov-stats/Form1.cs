@@ -1,8 +1,13 @@
-using CsvHelper;
-using CsvHelper.Configuration;
-using ScottPlot.Renderable;
+////////////////////////////////////////////////////////////
+///                                                      ///
+///     ETML, Vennes                                     ///
+///     Auteur : Velickovic Mateja (matvelickov)         ///
+///     Projet : P_FUN Plot That Line                    ///
+///     Date : 04.09.2024                                ///
+///                                                      ///
+////////////////////////////////////////////////////////////
+
 using System.Globalization;
-using System.Drawing;
 using ScottPlot;
 
 namespace matvelickov_stats
@@ -27,65 +32,83 @@ namespace matvelickov_stats
 
             graph.Plot.Style(Style.Gray2);
 
+            graph.Plot.YAxis.TickLabelFormat(a => $"${a}");
+
             graph.Plot.YAxis.Label(label: "Prix", color: Color.White);
             graph.Plot.XAxis.Label(label: "Date", color: Color.White);
 
             graph.Plot.XAxis.TickLabelStyle(color: Color.White);
             graph.Plot.YAxis.TickLabelStyle(color: Color.White);
+
+        }
+
+
+        /// <summary>
+        /// Lit les données CSV et les retourne sous forme de collection d'objets avec Date et Close.
+        /// </summary>
+        /// <returns>Liste dynamique des données CSV</returns>
+        public dynamic ReadCSV()
+        {
+            try
+            {
+                var data = File.ReadAllLines($"./CSV/{filePath}.csv")
+                               .Skip(1)
+                               .Select(line => line.Split(',')) 
+                               .Where(columns => columns.Length > 5 && 
+                                                 !string.IsNullOrWhiteSpace(columns[0]) && 
+                                                 !string.IsNullOrWhiteSpace(columns[5])) 
+                               .Select(columns => new
+                               {
+                                   Date = columns[0],  
+                                   Close = columns[4]
+                               })
+                               .ToList();
+
+                return data;
+            }
+            catch (Exception ex)
+            {
+                return ex;
+            }
         }
 
         /// <summary>
-        /// Lecture de fichier CSV
+        /// Affiche les données sous forme de graphique.
         /// </summary>
-        /// <param name="columnName"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentException"></exception>
-        public List<string> ReadCSV(string columnName)
+        /// <param name="firstCol">Nom de la première colonne (Date)</param>
+        /// <param name="secondCol">Nom de la deuxième colonne (Close)</param>
+        public void DisplayData()
         {
-            List<string> values = new List<string>();
-
-            if (filePath.Length > 3)
+            var values = ReadCSV();
+            if (values == null)
             {
-                using (var reader = new StreamReader($"./CSV/{filePath}.csv"))
-                using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)))
-                {
-                    csv.Read();
-                    csv.ReadHeader();
-                    var headers = csv.HeaderRecord;
-
-                    int columnIndex = Array.IndexOf(headers, columnName);
-                    if (columnIndex == -1)
-                    {
-                        throw new ArgumentException($"La colonne {columnName} n'existe pas.");
-                    }
-
-                    while (csv.Read())
-                    {
-                        var value = csv.GetField(columnIndex);
-                        values.Add(value);
-                    }
-                }
+                Console.WriteLine("Aucune donnée à afficher.");
+                return;
             }
 
-            return values;
-        }
+            List<string> xData = new List<string>();
+            List<string> yData = new List<string>();
 
-        /// <summary>
-        /// Affichage des données sur le graphique
-        /// </summary>
-        /// <param name="fileName"></param>
-        /// <param name="firstCol"></param>
-        /// <param name="secondCol"></param>
-        private void DisplayData(string firstCol, string secondCol)
-        {
-            List<string> xData = ReadCSV(firstCol);
-            List<string> yData = ReadCSV(secondCol);
+            foreach (var entry in values)
+            {
+                xData.Add(entry.Date);
+                yData.Add(entry.Close);
+            }
 
-            var xValues = xData.Select(date => DateTime.ParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture)).ToArray();
-            var yValues = yData.Select(value => double.Parse(value, CultureInfo.InvariantCulture)).ToArray();
+            try
+            {
+                var xValues = xData.Select(date => DateTime.ParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture)).ToArray();
+                var yValues = yData.Select(value => double.Parse(value, CultureInfo.InvariantCulture)).ToArray();
+                var dateOADates = xValues.Select(x => x.ToOADate()).ToArray();
 
-            var a = graph.Plot.AddScatter(xValues.Select(x => x.ToOADate()).ToArray(), yValues);
-            a.MarkerSize = 0;
+                var plot = graph.Plot.AddScatter(xValues.Select(x => x.ToOADate()).ToArray(), yValues, label: $"{filePath}");
+
+                plot.MarkerSize = 0;
+            }
+            catch (FormatException fe)
+            {
+                Console.WriteLine($"Erreur lors du parsing des données : {fe.Message}");
+            }
         }
 
         /// <summary>
@@ -109,14 +132,15 @@ namespace matvelickov_stats
         private void btn1_Click(object sender, EventArgs e)
         {
             filePath = listBox1.SelectedItem.ToString();
-            files += $" {listBox1.SelectedItem.ToString()} |";
+            files += $" {listBox1.SelectedItem} |";
 
-            if (filePath.Length > 2)
-            {
-                graph.Plot.Title(files, color: Color.White);
-                DisplayData(filePath, "close", "date");
-                graph.Refresh();
-            }
+            graph.Plot.Title(files, color: Color.White);
+            DisplayData();
+            graph.Refresh();
+
+            graph.Plot.Legend(enable: true);
+
+            graph.Plot.AxisAuto();
             graph.Refresh();
         }
 
@@ -135,7 +159,10 @@ namespace matvelickov_stats
 
                 foreach (string file in files)
                 {
-                    listBox1.Items.Add(Path.GetFileNameWithoutExtension(file));
+                    if(Path.GetExtension(file) == ".csv")
+                    {
+                        listBox1.Items.Add(Path.GetFileNameWithoutExtension(file));
+                    }
                 }
             }
             catch (Exception ex)
@@ -157,6 +184,9 @@ namespace matvelickov_stats
         {
         }
         private void button1_Load(object sender, EventArgs e)
+        {
+        }
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
         }
 

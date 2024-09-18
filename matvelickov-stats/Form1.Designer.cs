@@ -32,6 +32,7 @@
             graph = new ScottPlot.FormsPlot();
             button1 = new Button();
             listBox1 = new ListBox();
+            dateTimePicker1 = new DateTimePicker();
             SuspendLayout();
             // 
             // btn1
@@ -91,12 +92,22 @@
             listBox1.TabIndex = 4;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Anchor = AnchorStyles.Bottom;
+            dateTimePicker1.Location = new Point(479, 536);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(200, 23);
+            dateTimePicker1.TabIndex = 5;
+            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(21, 25, 34);
             ClientSize = new Size(964, 572);
+            Controls.Add(dateTimePicker1);
             Controls.Add(listBox1);
             Controls.Add(button1);
             Controls.Add(graph);
@@ -114,5 +125,6 @@
         private ScottPlot.FormsPlot graph;
         private Button button1;
         private ListBox listBox1;
+        private DateTimePicker dateTimePicker1;
     }
 }
