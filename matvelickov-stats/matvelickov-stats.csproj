@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="CsvHelper" Version="33.0.1" />
-    <PackageReference Include="ScottPlot.WinForms" Version="4.1.61" />
+    <PackageReference Include="ScottPlot.WinForms" Version="4.1.70" />
   </ItemGroup>
 
 </Project>

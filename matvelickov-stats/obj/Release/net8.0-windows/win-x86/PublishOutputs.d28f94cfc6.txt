@@ -1,0 +1,7 @@
+C:\Users\pe04uhp\Desktop\ntm\matvelickov-stats.pdb
+C:\Users\pe04uhp\Desktop\ntm\D3DCompiler_47_cor3.dll
+C:\Users\pe04uhp\Desktop\ntm\PenImc_cor3.dll
+C:\Users\pe04uhp\Desktop\ntm\PresentationNative_cor3.dll
+C:\Users\pe04uhp\Desktop\ntm\vcruntime140_cor3.dll
+C:\Users\pe04uhp\Desktop\ntm\wpfgfx_cor3.dll
+C:\Users\pe04uhp\Desktop\ntm\matvelickov-stats.exe

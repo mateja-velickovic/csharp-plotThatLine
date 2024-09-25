@@ -18,19 +18,14 @@ namespace matvelickov_stats
         string filePath = " ";
         string files = " ";
         List<string> selectedFiles = new List<string>();
-
         public Form1()
         {
             InitializeComponent();
-
             this.Load += new EventHandler(listBox1_Load);
-
             graph.Plot.XAxis.DateTimeFormat(true);
-
             var main_color = System.Drawing.Color.FromArgb(0x151922);
 
             graph.Plot.Style(Style.Gray2);
-
             graph.Plot.YAxis.TickLabelFormat(a => $"${a}");
 
             graph.Plot.YAxis.Label(label: "Prix", color: Color.White);
@@ -38,13 +33,13 @@ namespace matvelickov_stats
             graph.Plot.XAxis.TickLabelStyle(color: Color.White);
             graph.Plot.YAxis.TickLabelStyle(color: Color.White);
 
+            graph.Plot.YAxis.SetBoundary(-.1);
         }
-
 
         /// <summary>
         /// Insert columns 0 and 4 of the CSV file into the data variable
         /// </summary>
-        /// <returns>Liste dynamique des données CSV</returns>
+        /// <returns></returns>
         public dynamic ReadCSV()
         {
             try
@@ -87,7 +82,6 @@ namespace matvelickov_stats
                 xData.Add(entry.Date);
                 yData.Add(entry.Close);
             }
-
             try
             {
                 var xValues = xData.Select(date => DateTime.ParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture)).ToArray();
@@ -95,12 +89,46 @@ namespace matvelickov_stats
                 var dateOADates = xValues.Select(x => x.ToOADate()).ToArray();
 
                 var plot = graph.Plot.AddScatter(xValues.Select(x => x.ToOADate()).ToArray(), yValues, label: $"{filePath}");
+                plot.MarkerSize = 0; ;
 
-                plot.MarkerSize = 0;
             }
             catch (FormatException fe)
             {
                 Console.WriteLine($"Error parsing data : {fe.Message}");
+            }
+        }
+
+        public void RemoveData()
+        {
+            var values = ReadCSV();
+            if (values == null)
+            {
+                MessageBox.Show("No data to display.");
+                return;
+            }
+
+            List<string> xData = new List<string>();
+            List<string> yData = new List<string>();
+
+            foreach (var entry in values)
+            {
+                xData.Add(entry.Date);
+                yData.Add(entry.Close);
+            }
+            try
+            {
+                var xValues = xData.Select(date => DateTime.ParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture)).ToArray();
+                var yValues = yData.Select(value => double.Parse(value, CultureInfo.InvariantCulture)).ToArray();
+                var dateOADates = xValues.Select(x => x.ToOADate()).ToArray();
+
+                var plot = graph.Plot.AddScatter(xValues.Select(x => x.ToOADate()).ToArray(), yValues, label: $"{filePath}");
+                graph.Plot.Remove(plot);
+
+                plot.MarkerSize = 0;
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine($"Error parsing data : {e.Message}");
             }
         }
 
@@ -133,10 +161,8 @@ namespace matvelickov_stats
 
                 graph.Plot.Title(files, color: Color.White);
                 DisplayData();
-                graph.Refresh();
-
+                
                 graph.Plot.Legend(enable: true);
-
                 graph.Plot.AxisAuto();
                 graph.Refresh();
             }
@@ -170,8 +196,8 @@ namespace matvelickov_stats
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {}
-        private void graph_Load(object sender, EventArgs e)
+        { }
+        private void graph_Load_1(object sender, EventArgs e)
         {
         }
         private void label1_Click(object sender, EventArgs e)
@@ -184,6 +210,17 @@ namespace matvelickov_stats
         {
         }
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e) { }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            filePath = listBox1.SelectedItem.ToString();
+
+            selectedFiles.Remove(files);
+            RemoveData();
+
+            graph.Refresh();
+        }
+
 
     }
 }

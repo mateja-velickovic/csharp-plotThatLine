@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "TTkB8MpAzhWtFqXZaKDeP5l2XQ1KJ1yv5RixbnT+EuwZXDv5/HUemEN3i59l3Upbg7EKJ+Z9rbevNyCOFukbsw==",
+  "dgSpecHash": "Dtbaw82cPG43ejuKRL9uFxJgEQzFsmhlgQYffeu8M79qkimOkv8Y/A2uAurQdmQpOoDA8IXMspYV9rEU45PLoQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pe04uhp\\Desktop\\forms-stats\\matvelickov-stats\\matvelickov-stats.csproj",
+  "projectFilePath": "D:\\ETML\\CFC\\24-25_thirdYear\\Projects\\P_PROG\\matvelickov-stats\\matvelickov-stats.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pe04uhp\\.nuget\\packages\\csvhelper\\33.0.1\\csvhelper.33.0.1.nupkg.sha512",
     "C:\\Users\\pe04uhp\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.4\\microsoft.netcore.platforms.3.1.4.nupkg.sha512",
     "C:\\Users\\pe04uhp\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
-    "C:\\Users\\pe04uhp\\.nuget\\packages\\scottplot\\4.1.61\\scottplot.4.1.61.nupkg.sha512",
-    "C:\\Users\\pe04uhp\\.nuget\\packages\\scottplot.winforms\\4.1.61\\scottplot.winforms.4.1.61.nupkg.sha512",
+    "C:\\Users\\pe04uhp\\.nuget\\packages\\scottplot\\4.1.70\\scottplot.4.1.70.nupkg.sha512",
+    "C:\\Users\\pe04uhp\\.nuget\\packages\\scottplot.winforms\\4.1.70\\scottplot.winforms.4.1.70.nupkg.sha512",
     "C:\\Users\\pe04uhp\\.nuget\\packages\\system.drawing.common\\4.7.2\\system.drawing.common.4.7.2.nupkg.sha512",
     "C:\\Users\\pe04uhp\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
   ],

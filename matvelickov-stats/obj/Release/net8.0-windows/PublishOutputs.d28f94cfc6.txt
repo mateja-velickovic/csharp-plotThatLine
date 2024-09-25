@@ -1,0 +1,8 @@
+C:\Users\pe04uhp\Desktop\ntm\matvelickov-stats.exe
+C:\Users\pe04uhp\Desktop\ntm\matvelickov-stats.dll
+C:\Users\pe04uhp\Desktop\ntm\matvelickov-stats.deps.json
+C:\Users\pe04uhp\Desktop\ntm\matvelickov-stats.runtimeconfig.json
+C:\Users\pe04uhp\Desktop\ntm\matvelickov-stats.pdb
+C:\Users\pe04uhp\Desktop\ntm\CsvHelper.dll
+C:\Users\pe04uhp\Desktop\ntm\ScottPlot.dll
+C:\Users\pe04uhp\Desktop\ntm\ScottPlot.WinForms.dll

@@ -30,10 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             btn1 = new Button();
-            graph = new ScottPlot.FormsPlot();
             button1 = new Button();
             listBox1 = new ListBox();
             dateTimePicker1 = new DateTimePicker();
+            button2 = new Button();
+            graph = new ScottPlot.FormsPlot();
             SuspendLayout();
             // 
             // btn1
@@ -50,19 +51,6 @@
             btn1.Text = "ADD";
             btn1.UseVisualStyleBackColor = false;
             btn1.Click += btn1_Click;
-            // 
-            // graph
-            // 
-            graph.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            graph.AutoSize = true;
-            graph.BackColor = Color.FromArgb(21, 25, 34);
-            graph.ForeColor = Color.White;
-            graph.Location = new Point(175, 12);
-            graph.Margin = new Padding(4, 3, 4, 3);
-            graph.Name = "graph";
-            graph.Size = new Size(776, 502);
-            graph.TabIndex = 1;
-            graph.Load += graph_Load;
             // 
             // button1
             // 
@@ -102,16 +90,40 @@
             dateTimePicker1.TabIndex = 5;
             dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
+            // button2
+            // 
+            button2.Location = new Point(66, 486);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 6;
+            button2.Text = "button2";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // graph
+            // 
+			graph.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            graph.AutoSize = true;
+            graph.BackColor = Color.FromArgb(21, 25, 34);
+            graph.ForeColor = Color.White;
+            graph.Location = new Point(175, 12);
+            graph.Margin = new Padding(4, 3, 4, 3);
+            graph.Name = "graph";
+            graph.Size = new Size(735, 437);
+            graph.TabIndex = 7;
+            graph.Load += graph_Load_1;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(21, 25, 34);
             ClientSize = new Size(964, 572);
+            Controls.Add(graph);
+            Controls.Add(button2);
             Controls.Add(dateTimePicker1);
             Controls.Add(listBox1);
             Controls.Add(button1);
-            Controls.Add(graph);
             Controls.Add(btn1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
@@ -124,9 +136,10 @@
         #endregion
 
         private Button btn1;
-        private ScottPlot.FormsPlot graph;
         private Button button1;
         private ListBox listBox1;
         private DateTimePicker dateTimePicker1;
+        private Button button2;
+        private ScottPlot.FormsPlot graph;
     }
 }

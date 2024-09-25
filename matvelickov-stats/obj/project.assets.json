@@ -46,7 +46,7 @@
           }
         }
       },
-      "ScottPlot/4.1.61": {
+      "ScottPlot/4.1.70": {
         "type": "package",
         "dependencies": {
           "System.Drawing.Common": "4.7.2",
@@ -63,10 +63,10 @@
           }
         }
       },
-      "ScottPlot.WinForms/4.1.61": {
+      "ScottPlot.WinForms/4.1.70": {
         "type": "package",
         "dependencies": {
-          "ScottPlot": "4.1.61"
+          "ScottPlot": "4.1.70"
         },
         "compile": {
           "lib/net6.0-windows7.0/ScottPlot.WinForms.dll": {}
@@ -190,10 +190,10 @@
         "version.txt"
       ]
     },
-    "ScottPlot/4.1.61": {
-      "sha512": "MdAL3fLlFMTlCGwc19w+IcPNQL77RQExZRsx5cfUdtjvJKk6X81PdQ/eKdYVIhYLhTOXJ7X60GeLU63iZg4hFA==",
+    "ScottPlot/4.1.70": {
+      "sha512": "VirtuyZiq2QDAOZbscaM7n7RFGdI+YUBFbveOF/QbKACfXZSJTzUPaomfhQvT/pBVR3HTYaIeAlvA3949atCWg==",
       "type": "package",
-      "path": "scottplot/4.1.61",
+      "path": "scottplot/4.1.70",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -206,27 +206,25 @@
         "lib/net6.0/ScottPlot.xml",
         "lib/netstandard2.0/ScottPlot.dll",
         "lib/netstandard2.0/ScottPlot.xml",
-        "scottplot.4.1.61.nupkg.sha512",
+        "scottplot.4.1.70.nupkg.sha512",
         "scottplot.nuspec"
       ]
     },
-    "ScottPlot.WinForms/4.1.61": {
-      "sha512": "d/VSKSUNAr+7zg0Kg4IaN7C3GE71GRmmjw3rgsJLuFrh44KCGlTF6rlabHE/ZOFaOq5eWTjaQNCDlxjK8wGEMg==",
+    "ScottPlot.WinForms/4.1.70": {
+      "sha512": "yVxWIYjRESez93W44p0fVFHbOdzbiamlVT5aPTVUYPkPlzyyblot9yw9fkyvYbxGUR8IgvlgxM+/jDw0kHyjjw==",
       "type": "package",
-      "path": "scottplot.winforms/4.1.61",
+      "path": "scottplot.winforms/4.1.70",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
-        "icon.ico",
         "icon.png",
         "lib/net461/ScottPlot.WinForms.dll",
         "lib/net472/ScottPlot.WinForms.dll",
         "lib/net48/ScottPlot.WinForms.dll",
-        "lib/net5.0-windows7.0/ScottPlot.WinForms.dll",
         "lib/net6.0-windows7.0/ScottPlot.WinForms.dll",
         "lib/netcoreapp3.1/ScottPlot.WinForms.dll",
-        "scottplot.winforms.4.1.61.nupkg.sha512",
+        "scottplot.winforms.4.1.70.nupkg.sha512",
         "scottplot.winforms.nuspec"
       ]
     },
@@ -321,7 +319,7 @@
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
       "CsvHelper >= 33.0.1",
-      "ScottPlot.WinForms >= 4.1.61"
+      "ScottPlot.WinForms >= 4.1.70"
     ]
   },
   "packageFolders": {
@@ -332,11 +330,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pe04uhp\\Desktop\\forms-stats\\matvelickov-stats\\matvelickov-stats.csproj",
+      "projectUniqueName": "D:\\ETML\\CFC\\24-25_thirdYear\\Projects\\P_PROG\\matvelickov-stats\\matvelickov-stats.csproj",
       "projectName": "matvelickov-stats",
-      "projectPath": "C:\\Users\\pe04uhp\\Desktop\\forms-stats\\matvelickov-stats\\matvelickov-stats.csproj",
+      "projectPath": "D:\\ETML\\CFC\\24-25_thirdYear\\Projects\\P_PROG\\matvelickov-stats\\matvelickov-stats.csproj",
       "packagesPath": "C:\\Users\\pe04uhp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pe04uhp\\Desktop\\forms-stats\\matvelickov-stats\\obj\\",
+      "outputPath": "D:\\ETML\\CFC\\24-25_thirdYear\\Projects\\P_PROG\\matvelickov-stats\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -382,7 +380,7 @@
           },
           "ScottPlot.WinForms": {
             "target": "Package",
-            "version": "[4.1.61, )"
+            "version": "[4.1.70, )"
           }
         },
         "imports": [
