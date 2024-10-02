@@ -7,6 +7,8 @@
 ///                                                      ///
 ////////////////////////////////////////////////////////////
 
+using System;
+using System.Drawing.Design;
 using System.Globalization;
 using ScottPlot;
 
@@ -16,21 +18,27 @@ namespace matvelickov_stats
     public partial class Form1 : Form
     {
         string filePath = " ";
-        string files = " ";
         List<string> selectedFiles = new List<string>();
+
         public Form1()
         {
+            // Initialisation
             InitializeComponent();
             this.Load += new EventHandler(listBox1_Load);
+
+            // Mise en forme du graphique
             graph.Plot.XAxis.DateTimeFormat(true);
 
-            graph.Plot.Style(Style.Gray2);
+            graph.Plot.Style(Style.Default);
             graph.Plot.YAxis.TickLabelFormat(a => $"${a}");
 
-            graph.Plot.YAxis.Label(label: "Prix", color: Color.White);
-            graph.Plot.XAxis.Label(label: "Date", color: Color.White);
-            graph.Plot.XAxis.TickLabelStyle(color: Color.White);
-            graph.Plot.YAxis.TickLabelStyle(color: Color.White);
+            graph.Plot.YAxis.Label(label: "Prix", color: Color.Black);
+            graph.Plot.XAxis.Label(label: "Date", color: Color.Black);
+            graph.Plot.XAxis.TickLabelStyle(color: Color.Black);
+            graph.Plot.YAxis.TickLabelStyle(color: Color.Black);
+
+            // Activation of legends
+            graph.Plot.Legend(enable: true);
 
             graph.Plot.YAxis.SetBoundary(-.1);
 
@@ -45,8 +53,8 @@ namespace matvelickov_stats
         {
             try
             {
-
-                var data = File.ReadAllLines($"./CSV/{filePath}.csv")
+                // Lecture du fichier CSV
+                var data = File.ReadAllLines($"../../../..//CSV/{filePath}.csv")
                                .Skip(1)
                                .Select(line => line.Split(','))
                                .Select(columns => new Data
@@ -76,7 +84,6 @@ namespace matvelickov_stats
                 MessageBox.Show("Pas de données à afficher.");
                 return;
             }
-
             List<string> xData = values.Select(entry => entry.Date).ToList();
             List<string> yData = values.Select(entry => entry.Close).ToList();
 
@@ -97,53 +104,19 @@ namespace matvelickov_stats
         }
 
         /// <summary>
-        /// Retrait d'une seule donnée sur le graphique
-        /// </summary>
-        public void RemoveData()
-        {
-            var values = ReadCSV();
-            if (values == null)
-            {
-                MessageBox.Show("No data to display.");
-                return;
-            }
-
-            List<string> xData = new List<string>();
-            List<string> yData = new List<string>();
-
-            foreach (var entry in values)
-            {
-                xData.Add(entry.Date);
-                yData.Add(entry.Close);
-            }
-            try
-            {
-                var xValues = xData.Select(date => DateTime.ParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture)).ToArray();
-                var yValues = yData.Select(value => double.Parse(value, CultureInfo.InvariantCulture)).ToArray();
-                var dateOADates = xValues.Select(x => x.ToOADate()).ToArray();
-
-                var plot = graph.Plot.AddScatter(xValues.Select(x => x.ToOADate()).ToArray(), yValues, label: $"{filePath}");
-                graph.Plot.Remove(plot);
-
-                plot.MarkerSize = 0;
-            }
-            catch (FormatException e)
-            {
-                Console.WriteLine($"Error parsing data : {e.Message}");
-            }
-        }
-
-        /// <summary>
         /// User cleaning the graph
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
+            // Nettoyage du graphique
             graph.Plot.Clear();
+
+            // Nettoyage de la liste de string
             selectedFiles.Clear();
-            files = "";
-            graph.Plot.Title(files, color: Color.White);
+
+            // Rafraîchissement du graphique
             graph.Refresh();
         }
 
@@ -154,20 +127,29 @@ namespace matvelickov_stats
         /// <param name="e"></param>
         private void btn1_Click(object sender, EventArgs e)
         {
-            filePath = listBox1.SelectedItem.ToString();
-
-            if (!selectedFiles.Contains(filePath))
+            if (listBox1.SelectedItem != null)
             {
-                selectedFiles.Add(filePath);
-                files += $"{filePath}, ";
+                filePath = listBox1.SelectedItem.ToString();
 
-                graph.Plot.Title(files, color: Color.White);
-                DisplayData();
+                if (!selectedFiles.Contains(filePath))
+                {
+                    // Adding the value to the selectedFiles list
+                    selectedFiles.Add(filePath);
 
-                graph.Plot.Legend(enable: true);
-                graph.Plot.AxisAuto();
-                graph.Refresh();
+                    DisplayData();
+
+                    // Recentering the chart
+                    graph.Plot.AxisAuto();
+
+                    graph.Refresh();
+                }
             }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner une courbe à ajouter.");
+            }
+
+            RefreshListBox();
         }
 
         /// <summary>
@@ -177,19 +159,17 @@ namespace matvelickov_stats
         /// <param name="e"></param>
         private void listBox1_Load(object sender, EventArgs e)
         {
-            string directoryPath = "./CSV/";
+            // Path of the CSV directory
+            string directoryPath = "../../../../CSV/";
 
             try
             {
                 string[] files = Directory.GetFiles(directoryPath);
 
-                foreach (string file in files)
-                {
-                    if (Path.GetExtension(file) == ".csv")
-                    {
-                        listBox1.Items.Add(Path.GetFileNameWithoutExtension(file));
-                    }
-                }
+                listBox1.Items.AddRange(
+                files.Where(file => Path.GetExtension(file) == ".csv")
+                     .Select(file => Path.GetFileNameWithoutExtension(file))
+                     .ToArray());
             }
             catch (Exception ex)
             {
@@ -197,14 +177,66 @@ namespace matvelickov_stats
             }
         }
 
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+            if (listBox2.SelectedItem != null)
+            {
+                // Suppression de la courbe séléctionnée
+                var plotToRemove = (ScottPlot.Plottable.IPlottable)listBox2.SelectedItem;
+
+                graph.Plot.Remove(plotToRemove);
+                graph.Refresh();
+
+                RefreshListBox();
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner une courbe à supprimer.");
+            }
+        }
+
+        /// <summary>
+        /// Refreshing data from listbox2 (current curves)
+        /// </summary>
+        private void RefreshListBox()
+        {
+            listBox2.Items.Clear();
+
+            listBox2.Items.AddRange(graph.Plot.GetPlottables());
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        private void listBox2_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         { }
 
-
         private void graph_Load_1(object sender, EventArgs e)
-        {
-        }
-        private void label1_Click(object sender, EventArgs e)
         {
         }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -215,19 +247,5 @@ namespace matvelickov_stats
         }
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e) { }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            filePath = listBox1.SelectedItem.ToString();
-
-            selectedFiles.Remove(files);
-            RemoveData();
-
-            graph.Refresh();
-        }
-
-        private void toolTip1_Popup(object sender, PopupEventArgs e)
-        {
-
-        }
     }
 }

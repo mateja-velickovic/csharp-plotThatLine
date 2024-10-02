@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("matvelickov-stats")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+318754fb07dd0a294c74590ed56369aa81747237")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+50feb33a4a3dbabfdd0918dbbe8cd0021d8d16fa")]
 [assembly: System.Reflection.AssemblyProductAttribute("matvelickov-stats")]
 [assembly: System.Reflection.AssemblyTitleAttribute("matvelickov-stats")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -33,39 +33,44 @@
             button1 = new Button();
             listBox1 = new ListBox();
             dateTimePicker1 = new DateTimePicker();
-            button2 = new Button();
             graph = new ScottPlot.FormsPlot();
+            listBox2 = new ListBox();
+            button2 = new Button();
             SuspendLayout();
             // 
             // btn1
             // 
-            btn1.Anchor = AnchorStyles.Bottom;
+            btn1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             btn1.BackColor = Color.Green;
             btn1.FlatStyle = FlatStyle.Popup;
             btn1.Font = new Font("Arial", 11.25F, FontStyle.Bold);
             btn1.ForeColor = SystemColors.Control;
-            btn1.Location = new Point(352, 532);
+            btn1.Location = new Point(38, 307);
+            btn1.MaximumSize = new Size(141, 28);
+            btn1.MinimumSize = new Size(141, 28);
             btn1.Name = "btn1";
-            btn1.Size = new Size(100, 28);
+            btn1.Size = new Size(141, 28);
             btn1.TabIndex = 0;
-            btn1.Text = "ADD";
+            btn1.Text = "AJOUTER";
             btn1.UseVisualStyleBackColor = false;
             btn1.Click += btn1_Click;
             // 
             // button1
             // 
-            button1.Anchor = AnchorStyles.Bottom;
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             button1.BackColor = Color.Firebrick;
             button1.Cursor = Cursors.Hand;
             button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Arial", 11.25F, FontStyle.Bold);
+            button1.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(704, 535);
+            button1.Location = new Point(38, 505);
             button1.Margin = new Padding(0);
+            button1.MaximumSize = new Size(288, 28);
+            button1.MinimumSize = new Size(288, 28);
             button1.Name = "button1";
-            button1.Size = new Size(102, 28);
+            button1.Size = new Size(288, 28);
             button1.TabIndex = 3;
-            button1.Text = "CLEAN";
+            button1.Text = "NETTOYER LE GRAPHIQUE";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
@@ -73,59 +78,85 @@
             // 
             listBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             listBox1.BorderStyle = BorderStyle.FixedSingle;
+            listBox1.Font = new Font("Bahnschrift", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(37, 33);
+            listBox1.ItemHeight = 14;
+            listBox1.Location = new Point(38, 33);
+            listBox1.MaximumSize = new Size(141, 268);
+            listBox1.MinimumSize = new Size(141, 268);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(141, 437);
+            listBox1.Size = new Size(141, 268);
             listBox1.TabIndex = 4;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // dateTimePicker1
             // 
             dateTimePicker1.Anchor = AnchorStyles.Bottom;
-            dateTimePicker1.Location = new Point(479, 536);
+            dateTimePicker1.Location = new Point(971, 510);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(200, 23);
             dateTimePicker1.TabIndex = 5;
             dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
-            // button2
-            // 
-            button2.Location = new Point(66, 486);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 6;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
             // graph
             // 
             graph.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             graph.AutoSize = true;
-            graph.BackColor = Color.FromArgb(21, 25, 34);
+            graph.BackColor = SystemColors.Control;
             graph.ForeColor = Color.White;
-            graph.Location = new Point(175, 12);
+            graph.Location = new Point(186, 12);
             graph.Margin = new Padding(4, 3, 4, 3);
             graph.Name = "graph";
-            graph.Size = new Size(735, 437);
+            graph.Size = new Size(787, 437);
             graph.TabIndex = 7;
             graph.Load += graph_Load_1;
+            // 
+            // listBox2
+            // 
+            listBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            listBox2.FormattingEnabled = true;
+            listBox2.ItemHeight = 15;
+            listBox2.Items.AddRange(new object[] { "Liste des courbes affichées..." });
+            listBox2.Location = new Point(990, 33);
+            listBox2.MaximumSize = new Size(167, 274);
+            listBox2.MinimumSize = new Size(167, 274);
+            listBox2.Name = "listBox2";
+            listBox2.Size = new Size(167, 274);
+            listBox2.TabIndex = 8;
+            listBox2.SelectedIndexChanged += listBox2_SelectedIndexChanged;
+            // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            button2.BackColor = Color.DarkOrange;
+            button2.FlatStyle = FlatStyle.Popup;
+            button2.Font = new Font("Arial", 11.25F, FontStyle.Bold);
+            button2.ForeColor = SystemColors.Control;
+            button2.Location = new Point(990, 313);
+            button2.MaximumSize = new Size(167, 28);
+            button2.MinimumSize = new Size(167, 28);
+            button2.Name = "button2";
+            button2.Size = new Size(167, 28);
+            button2.TabIndex = 9;
+            button2.Text = "RETIRER";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click_1;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(21, 25, 34);
-            ClientSize = new Size(964, 572);
-            Controls.Add(graph);
+            BackColor = Color.White;
+            ClientSize = new Size(1190, 572);
             Controls.Add(button2);
+            Controls.Add(listBox2);
+            Controls.Add(graph);
             Controls.Add(dateTimePicker1);
             Controls.Add(listBox1);
             Controls.Add(button1);
             Controls.Add(btn1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MinimumSize = new Size(1192, 611);
             Name = "Form1";
             Text = "Plot That Line";
             Load += Form1_Load;
@@ -139,7 +170,8 @@
         private Button button1;
         private ListBox listBox1;
         private DateTimePicker dateTimePicker1;
-        private Button button2;
         private ScottPlot.FormsPlot graph;
+        private ListBox listBox2;
+        private Button button2;
     }
 }
