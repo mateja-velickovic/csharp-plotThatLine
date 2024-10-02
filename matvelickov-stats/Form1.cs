@@ -29,13 +29,13 @@ namespace matvelickov_stats
             // Mise en forme du graphique
             graph.Plot.XAxis.DateTimeFormat(true);
 
-            graph.Plot.Style(Style.Default);
+            graph.Plot.Style(Style.Blue2);
             graph.Plot.YAxis.TickLabelFormat(a => $"${a}");
 
-            graph.Plot.YAxis.Label(label: "Prix", color: Color.Black);
-            graph.Plot.XAxis.Label(label: "Date", color: Color.Black);
-            graph.Plot.XAxis.TickLabelStyle(color: Color.Black);
-            graph.Plot.YAxis.TickLabelStyle(color: Color.Black);
+            graph.Plot.YAxis.Label(label: "Prix", color: Color.GhostWhite);
+            graph.Plot.XAxis.Label(label: "Date", color: Color.GhostWhite);
+            graph.Plot.XAxis.TickLabelStyle(color: Color.GhostWhite);
+            graph.Plot.YAxis.TickLabelStyle(color: Color.GhostWhite);
 
             // Activation of legends
             graph.Plot.Legend(enable: true);
@@ -118,6 +118,8 @@ namespace matvelickov_stats
 
             // Rafraîchissement du graphique
             graph.Refresh();
+
+            RefreshListBox();
         }
 
         /// <summary>
@@ -153,6 +155,30 @@ namespace matvelickov_stats
         }
 
         /// <summary>
+        /// Retirer une courbe sur le graphique
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+            if (listBox2.SelectedItem != null)
+            {
+                // Suppression de la courbe séléctionnée
+                var plotToRemove = (ScottPlot.Plottable.IPlottable)listBox2.SelectedItem;
+
+                graph.Plot.Remove(plotToRemove);
+                graph.Refresh();
+                selectedFiles.Remove(listBox2.SelectedItem.ToString());
+                RefreshListBox();
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner une courbe à supprimer.");
+            }
+        }
+
+        /// <summary>
         /// List of all files in CSV folder
         /// </summary>
         /// <param name="sender"></param>
@@ -174,25 +200,6 @@ namespace matvelickov_stats
             catch (Exception ex)
             {
                 MessageBox.Show($"Error : {ex.Message}");
-            }
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-
-            if (listBox2.SelectedItem != null)
-            {
-                // Suppression de la courbe séléctionnée
-                var plotToRemove = (ScottPlot.Plottable.IPlottable)listBox2.SelectedItem;
-
-                graph.Plot.Remove(plotToRemove);
-                graph.Refresh();
-
-                RefreshListBox();
-            }
-            else
-            {
-                MessageBox.Show("Veuillez sélectionner une courbe à supprimer.");
             }
         }
 

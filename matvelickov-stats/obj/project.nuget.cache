@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+ls/6obbYurQnWcbTF1utocdwGDqzqjLRGlqGbTjmUgvyf4/1/4P8tJhmbmG3lPLDQgvIlILFLU3797VIfnMKA==",
+  "dgSpecHash": "f7YGMRbyyVZhIKHLk13F80AqQWdtr3KjcZqOlUtiWHlK5hTuaFO05EhYnZhjJ7hqyl+K7d6tLQR27Knhc5fNgg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pe04uhp\\Desktop\\forms-stats\\matvelickov-stats\\matvelickov-stats.csproj",
+  "projectFilePath": "C:\\Users\\pe04uhp\\Desktop\\csharp-plotThatLine\\matvelickov-stats\\matvelickov-stats.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pe04uhp\\.nuget\\packages\\csvhelper\\33.0.1\\csvhelper.33.0.1.nupkg.sha512",
     "C:\\Users\\pe04uhp\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.4\\microsoft.netcore.platforms.3.1.4.nupkg.sha512",
