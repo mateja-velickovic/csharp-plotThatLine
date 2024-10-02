@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Dtbaw82cPG43ejuKRL9uFxJgEQzFsmhlgQYffeu8M79qkimOkv8Y/A2uAurQdmQpOoDA8IXMspYV9rEU45PLoQ==",
+  "dgSpecHash": "+ls/6obbYurQnWcbTF1utocdwGDqzqjLRGlqGbTjmUgvyf4/1/4P8tJhmbmG3lPLDQgvIlILFLU3797VIfnMKA==",
   "success": true,
-  "projectFilePath": "D:\\ETML\\CFC\\24-25_thirdYear\\Projects\\P_PROG\\matvelickov-stats\\matvelickov-stats.csproj",
+  "projectFilePath": "C:\\Users\\pe04uhp\\Desktop\\forms-stats\\matvelickov-stats\\matvelickov-stats.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pe04uhp\\.nuget\\packages\\csvhelper\\33.0.1\\csvhelper.33.0.1.nupkg.sha512",
     "C:\\Users\\pe04uhp\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.4\\microsoft.netcore.platforms.3.1.4.nupkg.sha512",

@@ -141,6 +141,7 @@ namespace matvelickov_stats
         private void button1_Click(object sender, EventArgs e)
         {
             graph.Plot.Clear();
+            selectedFiles.Clear();
             files = "";
             graph.Plot.Title(files, color: Color.White);
             graph.Refresh();
