@@ -23,7 +23,6 @@ namespace matvelickov_stats
             InitializeComponent();
             this.Load += new EventHandler(listBox1_Load);
             graph.Plot.XAxis.DateTimeFormat(true);
-            var main_color = System.Drawing.Color.FromArgb(0x151922);
 
             graph.Plot.Style(Style.Gray2);
             graph.Plot.YAxis.TickLabelFormat(a => $"${a}");
@@ -34,20 +33,23 @@ namespace matvelickov_stats
             graph.Plot.YAxis.TickLabelStyle(color: Color.White);
 
             graph.Plot.YAxis.SetBoundary(-.1);
+
+            graph.Refresh();
         }
 
         /// <summary>
         /// Insert columns 0 and 4 of the CSV file into the data variable
         /// </summary>
         /// <returns></returns>
-        public dynamic ReadCSV()
+        public List<Data> ReadCSV()
         {
             try
             {
+
                 var data = File.ReadAllLines($"./CSV/{filePath}.csv")
                                .Skip(1)
                                .Select(line => line.Split(','))
-                               .Select(columns => new
+                               .Select(columns => new Data
                                {
                                    Date = columns[0],
                                    Close = columns[4]
@@ -58,7 +60,8 @@ namespace matvelickov_stats
             }
             catch (Exception ex)
             {
-                return MessageBox.Show($"Error: {ex}");
+                MessageBox.Show($"Error: {ex}");
+                return null;
             }
         }
 
@@ -67,21 +70,16 @@ namespace matvelickov_stats
         /// </summary>
         public void DisplayData()
         {
-            var values = ReadCSV();
+            List<Data> values = ReadCSV();
             if (values == null)
             {
-                MessageBox.Show("No data to display.");
+                MessageBox.Show("Pas de données à afficher.");
                 return;
             }
 
-            List<string> xData = new List<string>();
-            List<string> yData = new List<string>();
+            List<string> xData = values.Select(entry => entry.Date).ToList();
+            List<string> yData = values.Select(entry => entry.Close).ToList();
 
-            foreach (var entry in values)
-            {
-                xData.Add(entry.Date);
-                yData.Add(entry.Close);
-            }
             try
             {
                 var xValues = xData.Select(date => DateTime.ParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture)).ToArray();
@@ -94,10 +92,13 @@ namespace matvelickov_stats
             }
             catch (FormatException fe)
             {
-                Console.WriteLine($"Error parsing data : {fe.Message}");
+                Console.WriteLine($"Erreur lors de l'affichage des données : {fe.Message}");
             }
         }
 
+        /// <summary>
+        /// Retrait d'une seule donnée sur le graphique
+        /// </summary>
         public void RemoveData()
         {
             var values = ReadCSV();
@@ -161,7 +162,7 @@ namespace matvelickov_stats
 
                 graph.Plot.Title(files, color: Color.White);
                 DisplayData();
-                
+
                 graph.Plot.Legend(enable: true);
                 graph.Plot.AxisAuto();
                 graph.Refresh();
@@ -197,6 +198,8 @@ namespace matvelickov_stats
 
         private void Form1_Load(object sender, EventArgs e)
         { }
+
+
         private void graph_Load_1(object sender, EventArgs e)
         {
         }
@@ -221,6 +224,9 @@ namespace matvelickov_stats
             graph.Refresh();
         }
 
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
 
+        }
     }
 }

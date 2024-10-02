@@ -102,7 +102,7 @@
             // 
             // graph
             // 
-			graph.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            graph.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             graph.AutoSize = true;
             graph.BackColor = Color.FromArgb(21, 25, 34);
             graph.ForeColor = Color.White;
