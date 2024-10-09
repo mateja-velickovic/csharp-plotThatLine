@@ -48,7 +48,7 @@
             btn1.FlatStyle = FlatStyle.Popup;
             btn1.Font = new Font("Arial", 11.25F, FontStyle.Bold);
             btn1.ForeColor = SystemColors.Control;
-            btn1.Location = new Point(38, 307);
+            btn1.Location = new Point(38, 282);
             btn1.MaximumSize = new Size(141, 28);
             btn1.MinimumSize = new Size(141, 28);
             btn1.Name = "btn1";
@@ -66,7 +66,7 @@
             button1.FlatStyle = FlatStyle.Popup;
             button1.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(38, 505);
+            button1.Location = new Point(38, 520);
             button1.Margin = new Padding(0);
             button1.MaximumSize = new Size(288, 28);
             button1.MinimumSize = new Size(288, 28);
@@ -84,7 +84,7 @@
             listBox1.Font = new Font("Bahnschrift", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 14;
-            listBox1.Location = new Point(38, 33);
+            listBox1.Location = new Point(38, 12);
             listBox1.MaximumSize = new Size(141, 268);
             listBox1.MinimumSize = new Size(141, 268);
             listBox1.Name = "listBox1";
@@ -94,11 +94,12 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Anchor = AnchorStyles.Bottom;
+            dateTimePicker1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             dateTimePicker1.Location = new Point(750, 496);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(200, 23);
             dateTimePicker1.TabIndex = 5;
+            dateTimePicker1.Value = new DateTime(2024, 1, 1, 0, 0, 0, 0);
             dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // graph
@@ -120,7 +121,7 @@
             listBox2.FormattingEnabled = true;
             listBox2.ItemHeight = 15;
             listBox2.Items.AddRange(new object[] { "Liste des courbes affichées..." });
-            listBox2.Location = new Point(990, 33);
+            listBox2.Location = new Point(990, 12);
             listBox2.MaximumSize = new Size(167, 274);
             listBox2.MinimumSize = new Size(167, 274);
             listBox2.Name = "listBox2";
@@ -135,7 +136,7 @@
             button2.FlatStyle = FlatStyle.Popup;
             button2.Font = new Font("Arial", 11.25F, FontStyle.Bold);
             button2.ForeColor = SystemColors.Control;
-            button2.Location = new Point(990, 313);
+            button2.Location = new Point(990, 287);
             button2.MaximumSize = new Size(167, 28);
             button2.MinimumSize = new Size(167, 28);
             button2.Name = "button2";
@@ -147,21 +148,22 @@
             // 
             // dateTimePicker2
             // 
-            dateTimePicker2.Anchor = AnchorStyles.Bottom;
+            dateTimePicker2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             dateTimePicker2.Location = new Point(957, 496);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(200, 23);
             dateTimePicker2.TabIndex = 10;
+            dateTimePicker2.Value = new DateTime(2024, 12, 31, 0, 0, 0, 0);
             dateTimePicker2.ValueChanged += dateTimePicker2_ValueChanged;
             // 
             // button3
             // 
-            button3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button3.BackColor = Color.Green;
             button3.FlatStyle = FlatStyle.Popup;
             button3.Font = new Font("Arial", 11.25F, FontStyle.Bold);
             button3.ForeColor = SystemColors.Control;
-            button3.Location = new Point(870, 525);
+            button3.Location = new Point(990, 525);
             button3.Name = "button3";
             button3.Size = new Size(167, 23);
             button3.TabIndex = 11;
@@ -171,10 +173,11 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Snow;
-            label1.Location = new Point(839, 468);
+            label1.Location = new Point(948, 468);
             label1.Name = "label1";
             label1.Size = new Size(209, 25);
             label1.TabIndex = 12;
@@ -187,6 +190,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(19, 21, 25);
             ClientSize = new Size(1190, 572);
+            Controls.Add(btn1);
             Controls.Add(label1);
             Controls.Add(button3);
             Controls.Add(dateTimePicker2);
@@ -196,7 +200,6 @@
             Controls.Add(dateTimePicker1);
             Controls.Add(listBox1);
             Controls.Add(button1);
-            Controls.Add(btn1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(1192, 611);
             Name = "Form1";

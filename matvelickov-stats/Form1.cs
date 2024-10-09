@@ -56,7 +56,7 @@ namespace matvelickov_stats
             try
             {
                 // Lecture du fichier CSV
-                var data = File.ReadAllLines($"../../../..//CSV/{filePath}.csv")
+                var data = File.ReadAllLines($"../../../../CSV/{filePath}.csv")
                                .Skip(1)
                                .Select(line => line.Split(','))
                                .Select(columns => new Data

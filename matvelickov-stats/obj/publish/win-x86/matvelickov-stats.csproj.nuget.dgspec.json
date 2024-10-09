@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ETML\\CFC\\24-25_thirdYear\\Projects\\P_PROG\\matvelickov-stats\\matvelickov-stats.csproj": {}
+    "C:\\Users\\pe04uhp\\Desktop\\csharp-plotThatLine\\matvelickov-stats\\matvelickov-stats.csproj": {}
   },
   "projects": {
-    "D:\\ETML\\CFC\\24-25_thirdYear\\Projects\\P_PROG\\matvelickov-stats\\matvelickov-stats.csproj": {
+    "C:\\Users\\pe04uhp\\Desktop\\csharp-plotThatLine\\matvelickov-stats\\matvelickov-stats.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ETML\\CFC\\24-25_thirdYear\\Projects\\P_PROG\\matvelickov-stats\\matvelickov-stats.csproj",
+        "projectUniqueName": "C:\\Users\\pe04uhp\\Desktop\\csharp-plotThatLine\\matvelickov-stats\\matvelickov-stats.csproj",
         "projectName": "matvelickov-stats",
-        "projectPath": "D:\\ETML\\CFC\\24-25_thirdYear\\Projects\\P_PROG\\matvelickov-stats\\matvelickov-stats.csproj",
+        "projectPath": "C:\\Users\\pe04uhp\\Desktop\\csharp-plotThatLine\\matvelickov-stats\\matvelickov-stats.csproj",
         "packagesPath": "C:\\Users\\pe04uhp\\.nuget\\packages\\",
-        "outputPath": "D:\\ETML\\CFC\\24-25_thirdYear\\Projects\\P_PROG\\matvelickov-stats\\obj\\publish\\win-x86\\",
+        "outputPath": "C:\\Users\\pe04uhp\\Desktop\\csharp-plotThatLine\\matvelickov-stats\\obj\\publish\\win-x86\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -63,7 +63,7 @@
             },
             "ScottPlot.WinForms": {
               "target": "Package",
-              "version": "[4.1.61, )"
+              "version": "[4.1.70, )"
             }
           },
           "imports": [

@@ -11,7 +11,7 @@
         "dependencies": {
           "CsvHelper": "33.0.1",
           "Microsoft.NET.ILLink.Tasks": "8.0.2",
-          "ScottPlot.WinForms": "4.1.61",
+          "ScottPlot.WinForms": "4.1.70",
           "runtimepack.Microsoft.NETCore.App.Runtime.win-x86": "8.0.2",
           "runtimepack.Microsoft.WindowsDesktop.App.Runtime.win-x86": "8.0.2"
         },
@@ -935,26 +935,26 @@
           "Microsoft.NETCore.Platforms": "3.1.4"
         }
       },
-      "ScottPlot/4.1.61": {
+      "ScottPlot/4.1.70": {
         "dependencies": {
           "System.Drawing.Common": "4.7.2",
           "System.Numerics.Vectors": "4.5.0"
         },
         "runtime": {
           "lib/net6.0/ScottPlot.dll": {
-            "assemblyVersion": "4.1.61.0",
-            "fileVersion": "4.1.61.0"
+            "assemblyVersion": "4.1.70.0",
+            "fileVersion": "4.1.70.0"
           }
         }
       },
-      "ScottPlot.WinForms/4.1.61": {
+      "ScottPlot.WinForms/4.1.70": {
         "dependencies": {
-          "ScottPlot": "4.1.61"
+          "ScottPlot": "4.1.70"
         },
         "runtime": {
           "lib/net6.0-windows7.0/ScottPlot.WinForms.dll": {
-            "assemblyVersion": "4.1.61.0",
-            "fileVersion": "4.1.61.0"
+            "assemblyVersion": "4.1.70.0",
+            "fileVersion": "4.1.70.0"
           }
         }
       },
@@ -1011,19 +1011,19 @@
       "path": "microsoft.win32.systemevents/4.7.0",
       "hashPath": "microsoft.win32.systemevents.4.7.0.nupkg.sha512"
     },
-    "ScottPlot/4.1.61": {
+    "ScottPlot/4.1.70": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-MdAL3fLlFMTlCGwc19w+IcPNQL77RQExZRsx5cfUdtjvJKk6X81PdQ/eKdYVIhYLhTOXJ7X60GeLU63iZg4hFA==",
-      "path": "scottplot/4.1.61",
-      "hashPath": "scottplot.4.1.61.nupkg.sha512"
+      "sha512": "sha512-VirtuyZiq2QDAOZbscaM7n7RFGdI+YUBFbveOF/QbKACfXZSJTzUPaomfhQvT/pBVR3HTYaIeAlvA3949atCWg==",
+      "path": "scottplot/4.1.70",
+      "hashPath": "scottplot.4.1.70.nupkg.sha512"
     },
-    "ScottPlot.WinForms/4.1.61": {
+    "ScottPlot.WinForms/4.1.70": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-d/VSKSUNAr+7zg0Kg4IaN7C3GE71GRmmjw3rgsJLuFrh44KCGlTF6rlabHE/ZOFaOq5eWTjaQNCDlxjK8wGEMg==",
-      "path": "scottplot.winforms/4.1.61",
-      "hashPath": "scottplot.winforms.4.1.61.nupkg.sha512"
+      "sha512": "sha512-yVxWIYjRESez93W44p0fVFHbOdzbiamlVT5aPTVUYPkPlzyyblot9yw9fkyvYbxGUR8IgvlgxM+/jDw0kHyjjw==",
+      "path": "scottplot.winforms/4.1.70",
+      "hashPath": "scottplot.winforms.4.1.70.nupkg.sha512"
     },
     "System.Drawing.Common/4.7.2": {
       "type": "package",
