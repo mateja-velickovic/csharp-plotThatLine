@@ -11,6 +11,7 @@ using System;
 using System.Drawing.Design;
 using System.Globalization;
 using ScottPlot;
+using ScottPlot.Plottable;
 
 namespace matvelickov_stats
 {
@@ -29,7 +30,8 @@ namespace matvelickov_stats
             // Mise en forme du graphique
             graph.Plot.XAxis.DateTimeFormat(true);
 
-            graph.Plot.Style(Style.Blue2);
+            graph.Plot.Style(Style.Gray2);
+
             graph.Plot.YAxis.TickLabelFormat(a => $"${a}");
 
             graph.Plot.YAxis.Label(label: "Prix", color: Color.GhostWhite);
@@ -165,9 +167,9 @@ namespace matvelickov_stats
             if (listBox2.SelectedItem != null)
             {
                 // Suppression de la courbe séléctionnée
-                var plotToRemove = (ScottPlot.Plottable.IPlottable)listBox2.SelectedItem;
+                var plotToRemove = listBox2.SelectedItem;
 
-                graph.Plot.Remove(plotToRemove);
+                graph.Plot.Remove((ScottPlot.Plottable.IPlottable)plotToRemove);
                 graph.Refresh();
                 selectedFiles.Remove(listBox2.SelectedItem.ToString());
                 RefreshListBox();
@@ -209,10 +211,39 @@ namespace matvelickov_stats
         private void RefreshListBox()
         {
             listBox2.Items.Clear();
+            /*
+            var getLabelName = graph.Plot.GetPlottables()
+                .SelectMany(plottable => plottable.GetLegendItems()) 
+                .Select(legendItem => legendItem.label);      */      
 
-            listBox2.Items.AddRange(graph.Plot.GetPlottables());
+            listBox2.Items.AddRange(graph.Plot.GetPlottables().ToArray());
         }
 
+        /// <summary>
+        /// Button that change the period
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ChangePeriod();
+        }
+
+        /// <summary>
+        /// Change the period on click on the button
+        /// </summary>
+        void ChangePeriod()
+        {
+            DateTime startDate = dateTimePicker1.Value;
+            DateTime endDate = dateTimePicker2.Value;
+
+            if (startDate < endDate)
+            {
+                graph.Plot.SetAxisLimitsX(startDate.ToOADate(), endDate.ToOADate());
+                graph.Refresh();
+            }
+
+        }
 
 
 
@@ -241,7 +272,8 @@ namespace matvelickov_stats
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        { }
+        {
+        }
 
         private void graph_Load_1(object sender, EventArgs e)
         {
@@ -254,5 +286,15 @@ namespace matvelickov_stats
         }
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e) { }
 
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

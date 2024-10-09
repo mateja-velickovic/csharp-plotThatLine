@@ -36,6 +36,9 @@
             graph = new ScottPlot.FormsPlot();
             listBox2 = new ListBox();
             button2 = new Button();
+            dateTimePicker2 = new DateTimePicker();
+            button3 = new Button();
+            label1 = new Label();
             SuspendLayout();
             // 
             // btn1
@@ -92,7 +95,7 @@
             // dateTimePicker1
             // 
             dateTimePicker1.Anchor = AnchorStyles.Bottom;
-            dateTimePicker1.Location = new Point(971, 510);
+            dateTimePicker1.Location = new Point(750, 496);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(200, 23);
             dateTimePicker1.TabIndex = 5;
@@ -142,12 +145,51 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click_1;
             // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.Anchor = AnchorStyles.Bottom;
+            dateTimePicker2.Location = new Point(957, 496);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new Size(200, 23);
+            dateTimePicker2.TabIndex = 10;
+            dateTimePicker2.ValueChanged += dateTimePicker2_ValueChanged;
+            // 
+            // button3
+            // 
+            button3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            button3.BackColor = Color.Green;
+            button3.FlatStyle = FlatStyle.Popup;
+            button3.Font = new Font("Arial", 11.25F, FontStyle.Bold);
+            button3.ForeColor = SystemColors.Control;
+            button3.Location = new Point(870, 525);
+            button3.Name = "button3";
+            button3.Size = new Size(167, 23);
+            button3.TabIndex = 11;
+            button3.Text = "APPLIQUER";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Snow;
+            label1.Location = new Point(839, 468);
+            label1.Name = "label1";
+            label1.Size = new Size(209, 25);
+            label1.TabIndex = 12;
+            label1.Text = "Sélectionnez la période";
+            label1.Click += label1_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.FromArgb(19, 21, 25);
             ClientSize = new Size(1190, 572);
+            Controls.Add(label1);
+            Controls.Add(button3);
+            Controls.Add(dateTimePicker2);
             Controls.Add(button2);
             Controls.Add(listBox2);
             Controls.Add(graph);
@@ -173,5 +215,8 @@
         private ScottPlot.FormsPlot graph;
         private ListBox listBox2;
         private Button button2;
+        private DateTimePicker dateTimePicker2;
+        private Button button3;
+        private Label label1;
     }
 }
