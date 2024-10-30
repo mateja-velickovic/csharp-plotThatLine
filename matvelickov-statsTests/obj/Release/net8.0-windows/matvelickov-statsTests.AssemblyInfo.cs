@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("matvelickov-statsTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+51a21630a258baef1b496b2e47df0732df58db2d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+db7616ecaaec8ddf55e352be49f5c5ecf406456b")]
 [assembly: System.Reflection.AssemblyProductAttribute("matvelickov-statsTests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("matvelickov-statsTests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

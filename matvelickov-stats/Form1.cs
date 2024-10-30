@@ -18,7 +18,7 @@ namespace matvelickov_stats
 
     public partial class Form1 : Form
     {
-        string filePath = " ";
+        public string filePath = " ";
         List<string> selectedFiles = new List<string>();
 
         public Form1()
