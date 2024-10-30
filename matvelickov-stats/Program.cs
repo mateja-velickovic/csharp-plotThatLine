@@ -13,5 +13,8 @@ namespace matvelickov_stats
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
         }
+
+
+
     }
 }

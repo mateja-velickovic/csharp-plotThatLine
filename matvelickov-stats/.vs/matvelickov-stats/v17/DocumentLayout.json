@@ -3,12 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\pe04uhp\\Desktop\\csharp-plotThatLine\\matvelickov-stats\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BA789983-660A-4507-B8A6-D1CB92B8AA8B}|matvelickov-stats.csproj|c:\\users\\pe04uhp\\desktop\\csharp-plotthatline\\matvelickov-stats\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BA789983-660A-4507-B8A6-D1CB92B8AA8B}|matvelickov-stats.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BA789983-660A-4507-B8A6-D1CB92B8AA8B}|matvelickov-stats.csproj|c:\\users\\pe04uhp\\desktop\\csharp-plotthatline\\matvelickov-stats\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BA789983-660A-4507-B8A6-D1CB92B8AA8B}|matvelickov-stats.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F1A60F0-A4DD-4A1D-A5B2-F51D2E489DCE}|..\\matvelickov-statsTests\\matvelickov-statsTests.csproj|c:\\users\\pe04uhp\\desktop\\csharp-plotthatline\\matvelickov-statstests\\form1tests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA789983-660A-4507-B8A6-D1CB92B8AA8B}|matvelickov-stats.csproj|c:\\users\\pe04uhp\\desktop\\csharp-plotthatline\\matvelickov-stats\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA789983-660A-4507-B8A6-D1CB92B8AA8B}|matvelickov-stats.csproj|solutionrelative:data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA789983-660A-4507-B8A6-D1CB92B8AA8B}|matvelickov-stats.csproj|c:\\users\\pe04uhp\\desktop\\csharp-plotthatline\\matvelickov-stats\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BA789983-660A-4507-B8A6-D1CB92B8AA8B}|matvelickov-stats.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,11 +25,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "Form1Tests.cs",
+              "DocumentMoniker": "C:\\Users\\pe04uhp\\Desktop\\csharp-plotThatLine\\matvelickov-statsTests\\Form1Tests.cs",
+              "RelativeDocumentMoniker": "..\\matvelickov-statsTests\\Form1Tests.cs",
+              "ToolTip": "C:\\Users\\pe04uhp\\Desktop\\csharp-plotThatLine\\matvelickov-statsTests\\Form1Tests.cs",
+              "RelativeToolTip": "..\\matvelickov-statsTests\\Form1Tests.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABMAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T14:31:18.508Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Data.cs",
+              "DocumentMoniker": "C:\\Users\\pe04uhp\\Desktop\\csharp-plotThatLine\\matvelickov-stats\\Data.cs",
+              "RelativeDocumentMoniker": "Data.cs",
+              "ToolTip": "C:\\Users\\pe04uhp\\Desktop\\csharp-plotThatLine\\matvelickov-stats\\Data.cs",
+              "RelativeToolTip": "Data.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAgAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T14:28:05.944Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Form1.cs [Conception]",
               "DocumentMoniker": "C:\\Users\\pe04uhp\\Desktop\\csharp-plotThatLine\\matvelickov-stats\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
@@ -34,13 +67,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\pe04uhp\\Desktop\\csharp-plotThatLine\\matvelickov-stats\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "C:\\Users\\pe04uhp\\Desktop\\csharp-plotThatLine\\matvelickov-stats\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AQIAACgAAAAAAAAAAAAgwDoAAAA7AAAA",
+              "ViewState": "AQIAAJIAAAAAAAAAAAAuwHYAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-28T12:39:10.976Z",
               "EditorCaption": ""
